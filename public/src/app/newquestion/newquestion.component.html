@@ -1,0 +1,19 @@
+<a [routerLink]= "['/dashboard']" >Home</a> || <a href="">Logout</a>
+ <h1>New Question</h1>
+
+ <form (submit) = "postQuestion()" #questionForm = "ngForm">
+   Question: <input type="text" name="pregunta"
+   required
+   minlength="10"
+   [(ngModel)]= "question.Title"
+   #pregunta = "ngModel"
+   ><p style="color:red" *ngIf = "pregunta.invalid" class="invalid"> Question must be at least 10 characters long.</p>
+   <br>
+   Description (optional): <input type="text" name="descripcion"
+   [(ngModel)] = "question.Description"
+   #descripcion = "ngModel"
+   >
+   <br>
+   <input type="Submit" value="Cancel" id="">
+   <input type="Submit" value="Submit" [disabled] = "questionForm.invalid">
+ </form>

@@ -1,0 +1,7 @@
+<a [routerLink]= "['/dashboard']">Home</a> || <a [routerLink]= "['/answer/',qId]"> Answer this Question</a>  || <a href="">Logout</a>
+
+
+<div *ngFor = "let question of shownQ">
+    <h1>{{ question.Title }}</h1>
+    <h5>{{ question.Description }}</h5>
+</div>

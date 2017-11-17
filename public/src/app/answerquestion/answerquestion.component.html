@@ -1,0 +1,28 @@
+
+<a [routerLink]= "['/dashboard']">Home</a> || <a [routerLink]= "['/show/',qId]"> Go Back to ?</a>  || <a href="">Logout</a>
+
+<br>
+
+<div *ngFor = "let question of shownQ">
+  <h1>{{ question.Title }}</h1>
+  <h5>{{ question.Description }}</h5>
+</div>
+
+
+<fieldset>
+  <form  (submit) = "submitAnswer()" #answerForm = "ngForm">
+    Your Answer: <input type="text" name="repuesta" id=""
+    required
+    minlength="5"
+    [(ngModel)] = "answer.Title"
+    #respuesta = "ngModel"
+    ><p style="color:red" *ngIf = "respuesta.invalid" class="invalid"> Answer must be at least 5 characters long.</p>
+    <br>
+    Supporting details for your answer (optional): <input type="text" name="details"
+    [(ngModel)] = "answer.Description"
+    #details = "ngModel"
+    >
+    <br>
+    <input type="submit" value="Cancel" id=""> || <input type="submit" value="Submit" [disabled] = "answerForm.invalid">
+  </form>
+</fieldset>

@@ -1,0 +1,27 @@
+<h1>Hi, {{ user }}</h1>
+
+<a [routerLink]= "['/new/question']" >Add a Question</a> || <a href="">Logout</a>
+
+
+<div>
+  <input type="text" name="searchString" #searchString = "ngModel" [(ngModel)] = "stringSearch" 
+  (keyup)="searchNotes()"
+>
+<input type="submit" value="Search">
+</div>
+
+<fieldset>
+  <table>
+    <tr>
+      <td>Question</td>
+      <td>Answers</td>
+      <td>Action</td>
+    </tr>
+    <tr *ngFor = "let question of shownQuestions">
+      <td> {{ question.Title }}</td>
+      <td> 0 </td>
+      <!-- <td *ngIf = "answers.length > 0"> {{ answers.length }} </td> -->
+      <td> <button [routerLink]= "['/show/',question._id]">Show</button> <button [routerLink]= "['/answer/',question._id]">Answer</button></td>
+    </tr>
+  </table>
+</fieldset>
